@@ -1,0 +1,13 @@
+{
+    "name": "encoding_packages",
+    "pub": 20120820,
+    "main": [
+        "package_gbk/index.js",
+        "package_gb2312/index.js",
+        "package_gb18030/index.js",
+        "package_utf-8/index.js"
+    ],
+    "output": "publish/{{basePath}}.js",
+    "compress": "-min",
+    "outputCharset": "gbk"
+}
