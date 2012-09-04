@@ -12,12 +12,21 @@ var packageInfo = require( '../package.json' );
 program
     // Set version.
     .version( packageInfo.version )
+    .usage('[options] [command]')
     .option('-w, --wrapConfig', 'Wrap output code with KISSY package configuration.')
     .option('-c, --compress', 'Compress output code with UglifyJS.')
     .option('-s, --silent', 'Silent all the log.')
-    .option('-u, --update', 'Update KSP to latest version.')
-    // Parse the arguments.
-    .parse(process.argv);
+    .option('-u, --update', 'Update KSP to latest version.');
+
+program.on('--help', function(){
+    console.log('  Commands:');
+    console.log('');
+    console.log('    init :  Setup `ksp.json` automatically.');
+    console.log('');
+});
+
+// Parse the arguments.
+program.parse(process.argv);
 
 // If silent is set, than silent the log.
 if( program.silent === true ){
@@ -26,6 +35,20 @@ if( program.silent === true ){
 
 // === Log ===
 Log.info( 'Success if end up with:', 'OK' );
+
+// Args command get a higher priority.
+var args = program.args;
+if( args.length > 0 ){
+    var commandName = args[ 0 ];
+    try{
+        require( './' + commandName).command( program );
+    }
+    catch(e) {
+        Log.error( 'UnKnow command:', commandName );
+        process.exit( 1 );
+    }
+    return;
+}
 
 // If update `ksp`
 if( program.update ===  true ){

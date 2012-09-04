@@ -1,0 +1,14 @@
+{
+    "name": "{{name}}",
+    {{#charset}}
+    "charset": "{{& charset}}",
+    {{/charset}}
+    {{#pub}}
+    "pub": {{& pub}},
+    {{/pub}}
+    "main": {{& main}},
+    "output": "{{& output}}"{{#compress}},{{/compress}}
+    {{#compress}}
+    "compress": "{{#compressSuffix}}{{& compressSuffix}}{{/compressSuffix}}{{^compressSuffix}}-min{{/compressSuffix}}"
+    {{/compress}}
+}

@@ -6,31 +6,31 @@ Kissy Simple Pie
 又一个KISSY模块打包工具，特点：
  * 使用JSON文件进行灵活的包配置.
  * 完全灵活，没有文件目录的要求.
+ * 自动检测文件编码/支持制定编码输出(再也不用纠结编码问题了^0^)
  * 使用[UglifyJS](https://github.com/mishoo/UglifyJS)进行代码压缩.
  * 基于[moduleCompiler](https://github.com/czy88840616/tbuild/blob/master/lib/util/moduleComplier.js),非常感谢@紫英.
  * 使用[npmlog](https://github.com/neekey/npmlog)进行信息输出.
 
 `KSP`非常适合将现有的项目从`ant`繁琐的配置中解脱出来。
 
-**Release `0.0.7-beta`**
-
- * 添加自动编码检测(不用再手动设置charset)
- * 定义文件输出编码(使用字段`outputCharset`)
-
 具体细节请参考下方的`自动编码检测`和`设置输出编码`
 
 ## 命令参数
 ```
-    Usage: KSP [options]
+    Usage: KSP [options] [command]
 
-    Options:
+      Options:
 
-      -h, --help        output usage information
-      -V, --version     output the version number
-      -w, --wrapConfig  Wrap output code with KISSY package configuration.
-      -c, --compress    Compress output code with UglifyJS.
-      -s, --silent      Silent all the log.
-      -u, --update      Update KSP to latest version.
+        -h, --help        output usage information
+        -V, --version     output the version number
+        -w, --wrapConfig  Wrap output code with KISSY package configuration.
+        -c, --compress    Compress output code with UglifyJS.
+        -s, --silent      Silent all the log.
+        -u, --update      Update KSP to latest version.
+
+      Commands:
+
+        init :  Setup `ksp.json` automatically.
 ```
 ## 安装
 
@@ -42,7 +42,7 @@ npm install ksp -g
 
 ### 基本
 
-`ksp`的使用是基于配置文件`ksp.json`，且理论上配置文件与需要打包的文件没有强制的路径位置关系。
+`ksp`的使用是基于配置文件`ksp.json`( 推荐是用命令 `ksp init`来自动创建配置文件 )，且理论上配置文件与需要打包的文件没有强制的路径位置关系。
 
 OK!直接看下例子，现在我们有目录`KSP/example/package_one`,该目录下文件如下：
 
