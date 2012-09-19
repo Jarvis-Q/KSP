@@ -13,8 +13,6 @@ Kissy Simple Pie
 
 `KSP`非常适合将现有的项目从`ant`繁琐的配置中解脱出来。
 
-具体细节请参考下方的`自动编码检测`和`设置输出编码`
-
 ## 命令参数
 ```
     Usage: KSP [options] [command]
