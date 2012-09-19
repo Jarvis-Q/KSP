@@ -11,6 +11,7 @@
         "url": "git@github.com:Neekey/ksp.git"
     },
     "dependencies": {
+        "module-compiler": "*",
         "iconv-lite": "*",
         "commander": "*",
         "mustache": "*",
